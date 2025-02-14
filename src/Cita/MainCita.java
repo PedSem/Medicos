@@ -1,4 +1,5 @@
 package Cita;
+//Pedro Guillo
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -9,7 +10,6 @@ import java.util.Scanner;
 public class MainCita {
     private static Scanner scanner=new Scanner(System.in);
     private static ArrayList<Cita>citas=new ArrayList<>();
-
 
     public static void main(String[] args) {
 
@@ -77,7 +77,7 @@ public class MainCita {
     }
     public static void AnyadirCita(){
         int ID_cita=0;
-        String fecha_cita="";
+        String fecha_cita;
         int hora_cita=0;
         Date fechacita=new Date();
         String diagnosis="";
