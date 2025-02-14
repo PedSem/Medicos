@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class MainCita {
     private static Scanner scanner=new Scanner(System.in);
-    private static ArrayList<Cita>citas=new ArrayList<>();
+    private static ArrayList<ArrayListdeCita> arrayListdeCitas =new ArrayList<>();
 
     public static void main(String[] args) {
 
@@ -60,10 +60,10 @@ public class MainCita {
 
     }
     public static void imprimircita(){
-        System.out.println("Tenemos " + citas.size() + " elementos en el arraylist");
-        for(int i=0;i<citas.size();i++){
+        System.out.println("Tenemos " + arrayListdeCitas.size() + " elementos en el arraylist");
+        for(int i = 0; i< arrayListdeCitas.size(); i++){
             System.out.print((i+1) + ".");
-            System.out.println("ID_cita:" + citas.get(i).getID_cita() + " Fecha_cita " + citas.get(i).getFecha_cita() + " Hora_cita " + citas.get(i).getHora_cita() + " Diagnosis " + citas.get(i).getDiagnosis());
+            System.out.println("ID_cita:" + arrayListdeCitas.get(i).getID_cita() + " Fecha_cita " + arrayListdeCitas.get(i).getFecha_cita() + " Hora_cita " + arrayListdeCitas.get(i).getHora_cita() + " Diagnosis " + arrayListdeCitas.get(i).getDiagnosis());
         }
 
     }
@@ -137,8 +137,8 @@ public class MainCita {
                 scanner.nextLine();
             }
         }while (!continuar);
-        Cita cita=Cita.cita(ID_cita,fechacita,hora_cita,diagnosis);
-        boolean resultadocita=addCita(cita);
+        ArrayListdeCita arrayListdeCita = ArrayListdeCita.cita(ID_cita,fechacita,hora_cita,diagnosis);
+        boolean resultadocita=addCita(arrayListdeCita);
         if(resultadocita){
             System.out.println("Se agrego correctamente la cita");
         }else{
@@ -159,9 +159,9 @@ public class MainCita {
                 scanner.nextLine();
             }
         }while (!continuar);
-        Cita cita=queryCita(ID_cita);
-        if(cita!=null){
-            boolean removercita=removeCita(cita);
+        ArrayListdeCita arrayListdeCita =queryCita(ID_cita);
+        if(arrayListdeCita !=null){
+            boolean removercita=removeCita(arrayListdeCita);
             if(removercita){
                 System.out.println("La cita se elimino correctamente");
             }else{
@@ -171,50 +171,50 @@ public class MainCita {
             System.out.println("No se encontro la cita");
         }
     }
-    private static int findCita(Cita cita){
-        int index=citas.indexOf(cita);
+    private static int findCita(ArrayListdeCita arrayListdeCita){
+        int index= arrayListdeCitas.indexOf(arrayListdeCita);
         return index;
     }
     private static int findCita(int ID_cita){
-        for(int i=0;i<citas.size();i++){
-            if(citas.get(i).getID_cita()==ID_cita){
+        for(int i = 0; i< arrayListdeCitas.size(); i++){
+            if(arrayListdeCitas.get(i).getID_cita()==ID_cita){
                 return i;
             }
         }
         return -1;
 
     }
-    public static boolean addCita(Cita cita){
-        int index=findCita(cita);
+    public static boolean addCita(ArrayListdeCita arrayListdeCita){
+        int index=findCita(arrayListdeCita);
         if(index==-1){
-            citas.add(cita);
+            arrayListdeCitas.add(arrayListdeCita);
             return true;
         }else{
             return false;
         }
     }
-    public static Cita queryCita(int ID_cita){
+    public static ArrayListdeCita queryCita(int ID_cita){
         int index=findCita(ID_cita);
         if(index>=0){
-            return citas.get(index);
+            return arrayListdeCitas.get(index);
         }else{
             return null;
         }
     }
-    public static boolean removeCita(Cita cita){
-        int index=findCita(cita);
+    public static boolean removeCita(ArrayListdeCita arrayListdeCita){
+        int index=findCita(arrayListdeCita);
         if(index>=0){
-            citas.remove(index);
+            arrayListdeCitas.remove(index);
             return true;
         }else{
             return false;
         }
 
     }
-    public static boolean updatecita(Cita citanueva,Cita citaantigua){
+    public static boolean updatecita(ArrayListdeCita citanueva, ArrayListdeCita citaantigua){
         int index=findCita(citaantigua);
         if(index>=0){
-            citas.set(index,citanueva);
+            arrayListdeCitas.set(index,citanueva);
             return true;
         }else{
             return false;
@@ -240,8 +240,8 @@ public class MainCita {
 
             }
         }while (!continuar);
-        Cita cita=queryCita(ID_cita);
-        if(cita!=null){
+        ArrayListdeCita arrayListdeCita =queryCita(ID_cita);
+        if(arrayListdeCita !=null){
             continuar=false;
             do {
                 try {
@@ -297,8 +297,8 @@ public class MainCita {
                     scanner.nextLine();
                 }
             }while (!continuar);
-            Cita cita1=Cita.cita(nuevaID_cita,fechacita,nuevahora_cita,nuevodiagnosis);
-            boolean updateContact=updatecita(cita1,cita);
+            ArrayListdeCita arrayListdeCita1 = ArrayListdeCita.cita(nuevaID_cita,fechacita,nuevahora_cita,nuevodiagnosis);
+            boolean updateContact=updatecita(arrayListdeCita1, arrayListdeCita);
             if(updateContact){
                 System.out.println("La cita se actualizo correctamente");
             }else{
@@ -325,9 +325,9 @@ public class MainCita {
                 continuar=true;
             }
         }while (continuar);
-        Cita EncontrarCita=queryCita(ID_cita);
-        if(EncontrarCita!=null){
-            System.out.println("Cita encontrada: ID_Cita:" + EncontrarCita.getID_cita() + " Fecha_Cita:" + EncontrarCita.getFecha_cita() + " Hora_Cita:" + EncontrarCita.getHora_cita() + " Diagnosis:" + EncontrarCita.getDiagnosis() );
+        ArrayListdeCita encontrarArrayListdeCita =queryCita(ID_cita);
+        if(encontrarArrayListdeCita !=null){
+            System.out.println("Cita encontrada: ID_Cita:" + encontrarArrayListdeCita.getID_cita() + " Fecha_Cita:" + encontrarArrayListdeCita.getFecha_cita() + " Hora_Cita:" + encontrarArrayListdeCita.getHora_cita() + " Diagnosis:" + encontrarArrayListdeCita.getDiagnosis() );
         }
 
 

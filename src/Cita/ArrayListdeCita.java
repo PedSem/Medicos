@@ -4,13 +4,13 @@ package Cita;
 import java.util.Date;
 import java.util.Objects;
 
-public class Cita {
+public class ArrayListdeCita {
     protected int ID_cita;
     protected Date fecha_cita;
     protected int hora_cita;
     protected String diagnosis;
 
-    public Cita(int ID_cita,Date fecha_cita, int hora_cita,String diagnosis) {
+    public ArrayListdeCita(int ID_cita, Date fecha_cita, int hora_cita, String diagnosis) {
         this.ID_cita = ID_cita;
         this.fecha_cita = fecha_cita;
         this.hora_cita = hora_cita;
@@ -51,8 +51,8 @@ public class Cita {
     public void setDiagnosis(String diagnosis) {
         this.diagnosis = diagnosis;
     }
-    public static Cita cita(int ID_cita,Date fecha_cita,int hora_cita,String diagnosis){
-        return new Cita(ID_cita,fecha_cita,hora_cita,diagnosis);
+    public static ArrayListdeCita cita(int ID_cita, Date fecha_cita, int hora_cita, String diagnosis){
+        return new ArrayListdeCita(ID_cita,fecha_cita,hora_cita,diagnosis);
     }
 
 
@@ -60,8 +60,8 @@ public class Cita {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Cita cita = (Cita) o;
-        return ID_cita == cita.ID_cita;
+        ArrayListdeCita arrayListdeCita = (ArrayListdeCita) o;
+        return ID_cita == arrayListdeCita.ID_cita;
     }
 
     @Override
