@@ -1,5 +1,8 @@
 package Cita;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -76,6 +79,7 @@ public class MainCita {
         int ID_cita=0;
         String fecha_cita="";
         int hora_cita=0;
+        Date fechacita=new Date();
         String diagnosis="";
         boolean continuar=false;
 
@@ -96,10 +100,13 @@ public class MainCita {
             try{
                 System.out.print("Introduce la fecha de la cita:");
                 fecha_cita= scanner.next();
+                SimpleDateFormat fecha=new SimpleDateFormat("dd/MM/yyyy");
+                fechacita= fecha.parse(fecha_cita);
                 continuar=true;
             }catch (InputMismatchException e){
                 System.out.println("Error.Debes poner solo numeros");
-                scanner.nextLine();
+            } catch (ParseException e) {
+                throw new RuntimeException(e);
             }
         }while (!continuar);
         continuar=false;
@@ -130,7 +137,7 @@ public class MainCita {
                 scanner.nextLine();
             }
         }while (!continuar);
-        Cita cita=Cita.cita(ID_cita,fecha_cita,hora_cita,diagnosis);
+        Cita cita=Cita.cita(ID_cita,fechacita,hora_cita,diagnosis);
         boolean resultadocita=addCita(cita);
         if(resultadocita){
             System.out.println("Se agrego correctamente la cita");
@@ -216,7 +223,8 @@ public class MainCita {
     public static void updateCita(){
         int ID_cita=0;
         int nuevaID_cita=0;
-        String nuevafecha_cita="";
+        String nuevafecha_cita;
+        Date fechacita=new Date();
         int nuevahora_cita=0;
         String nuevodiagnosis="";
         boolean continuar=false;
@@ -250,12 +258,15 @@ public class MainCita {
             continuar=false;
             do{
                 try{
-                    System.out.print("Introduce la nueva fecha de la cita:");
+                    System.out.print("Introduce la fecha de la cita:");
                     nuevafecha_cita= scanner.next();
+                    SimpleDateFormat fecha=new SimpleDateFormat("dd/MM/yyyy");
+                    fechacita= fecha.parse(nuevafecha_cita);
                     continuar=true;
                 }catch (InputMismatchException e){
                     System.out.println("Error.Debes poner solo numeros");
-                    scanner.nextLine();
+                } catch (ParseException e) {
+                    throw new RuntimeException(e);
                 }
             }while (!continuar);
             continuar=false;
@@ -286,7 +297,7 @@ public class MainCita {
                     scanner.nextLine();
                 }
             }while (!continuar);
-            Cita cita1=Cita.cita(nuevaID_cita,nuevafecha_cita,nuevahora_cita,nuevodiagnosis);
+            Cita cita1=Cita.cita(nuevaID_cita,fechacita,nuevahora_cita,nuevodiagnosis);
             boolean updateContact=updatecita(cita1,cita);
             if(updateContact){
                 System.out.println("La cita se actualizo correctamente");

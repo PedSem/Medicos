@@ -1,15 +1,16 @@
 package Cita;
 //Pedro Guillo
 
+import java.util.Date;
 import java.util.Objects;
 
 public class Cita {
     protected int ID_cita;
-    protected String fecha_cita;
+    protected Date fecha_cita;
     protected int hora_cita;
     protected String diagnosis;
 
-    public Cita(int ID_cita,String fecha_cita, int hora_cita,String diagnosis) {
+    public Cita(int ID_cita,Date fecha_cita, int hora_cita,String diagnosis) {
         this.ID_cita = ID_cita;
         this.fecha_cita = fecha_cita;
         this.hora_cita = hora_cita;
@@ -25,11 +26,13 @@ public class Cita {
         this.ID_cita = ID_cita;
     }
 
-    public String getFecha_cita() {
+
+
+    public Date getFecha_cita() {
         return fecha_cita;
     }
 
-    public void setFecha_cita(String fecha_cita) {
+    public void setFecha_cita(Date fecha_cita) {
         this.fecha_cita = fecha_cita;
     }
 
@@ -48,7 +51,7 @@ public class Cita {
     public void setDiagnosis(String diagnosis) {
         this.diagnosis = diagnosis;
     }
-    public static Cita cita(int ID_cita,String fecha_cita,int hora_cita,String diagnosis){
+    public static Cita cita(int ID_cita,Date fecha_cita,int hora_cita,String diagnosis){
         return new Cita(ID_cita,fecha_cita,hora_cita,diagnosis);
     }
 
