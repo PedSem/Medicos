@@ -49,7 +49,7 @@ public class MainCita {
                     ConsultarCita();
                     break;
                 case 5:
-                    imprimircita();
+                    printcita();
                     break;
 
             }
@@ -59,7 +59,7 @@ public class MainCita {
         }while ((opcion<0 || opcion>5) || continuar);
 
     }
-    public static void imprimircita(){
+    public static void printcita(){
         System.out.println("Tenemos " + arrayListdeCitas.size() + " elementos en el arraylist");
         for(int i = 0; i< arrayListdeCitas.size(); i++){
             System.out.print((i+1) + ".");
@@ -138,7 +138,7 @@ public class MainCita {
             }
         }while (!continuar);
         ArrayListdeCita arrayListdeCita = ArrayListdeCita.cita(ID_cita,fechacita,hora_cita,diagnosis);
-        boolean resultadocita=addCita(arrayListdeCita);
+        boolean resultadocita=addNewCita(arrayListdeCita);
         if(resultadocita){
             System.out.println("Se agrego correctamente la cita");
         }else{
@@ -184,7 +184,7 @@ public class MainCita {
         return -1;
 
     }
-    public static boolean addCita(ArrayListdeCita arrayListdeCita){
+    public static boolean addNewCita(ArrayListdeCita arrayListdeCita){
         int index=findCita(arrayListdeCita);
         if(index==-1){
             arrayListdeCitas.add(arrayListdeCita);
