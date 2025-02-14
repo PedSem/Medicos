@@ -142,18 +142,14 @@ public class MainCita {
     public static void removecita(){
         int ID_cita=0;
         boolean continuar=false;
-        boolean comprobar=true;
         do{
             try{
                 System.out.println("Introduce el ID_cita que quieres eliminar");
                 ID_cita= scanner.nextInt();
+                continuar=true;
             }catch (InputMismatchException e){
                 System.out.println("Error.Solo se permiten numeros");
                 scanner.nextLine();
-                comprobar=false;
-            }
-            if(comprobar){
-                continuar=true;
             }
         }while (!continuar);
         Cita cita=queryCita(ID_cita);
@@ -254,7 +250,7 @@ public class MainCita {
             continuar=false;
             do{
                 try{
-                    System.out.print("Introduce la fecha de la cita:");
+                    System.out.print("Introduce la nueva fecha de la cita:");
                     nuevafecha_cita= scanner.next();
                     continuar=true;
                 }catch (InputMismatchException e){
@@ -265,7 +261,7 @@ public class MainCita {
             continuar=false;
             do{
                 try{
-                    System.out.print("Introduce la hora de la cita:");
+                    System.out.print("Introduce la nueva hora de la cita:");
                     nuevahora_cita= scanner.nextInt();
                     continuar=true;
                 }catch (InputMismatchException e){
@@ -276,7 +272,7 @@ public class MainCita {
             continuar=false;
             do{
                 try{
-                    System.out.print("Introduce el diagnosis:");
+                    System.out.print("Introduce el nuevo diagnosis:");
                     nuevodiagnosis= scanner.next();
                     for(int i=0;i<nuevodiagnosis.length();i++){
                         if(Character.isLetter(nuevodiagnosis.charAt(i))){
@@ -309,7 +305,7 @@ public class MainCita {
         boolean continuar=false;
         do{
             try{
-                System.out.println("Introduce el ID_cita que quieres eliminar");
+                System.out.println("Introduce el ID_cita que quieres consultar");
                 ID_cita= scanner.nextInt();
 
             }catch (InputMismatchException e){
