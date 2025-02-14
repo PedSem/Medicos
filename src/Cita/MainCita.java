@@ -21,15 +21,17 @@ public class MainCita {
                 System.out.println("Elige una opcion");
                 opcion= scanner.nextInt();
                 scanner.nextLine();
-                if(opcion<0 || opcion>5){
-                    System.out.println("Escoge una opcion valida");
+                if(opcion>=0 && opcion<6){
                     continuar=false;
+                }else{
+                    System.out.println("Introduce una opcion valida");
                 }
 
 
             }catch (InputMismatchException e){
                 System.out.println("Error.Solo se permiten numeros");
                 scanner.nextLine();
+
             }
             switch (opcion){
                 case 0:
@@ -51,7 +53,6 @@ public class MainCita {
                 case 5:
                     printcita();
                     break;
-
             }
 
 
