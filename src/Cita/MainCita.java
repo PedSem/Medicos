@@ -19,21 +19,20 @@ public class MainCita {
         do{
             imprimirmenu();
             do{
-                entradavalida=false;
+                entradavalida=true;
                 try{
                     System.out.println("Elige una opcion");
                     opcion= scanner.nextInt();
                     scanner.nextLine();
+                    entradavalida=false;
                     if(opcion<0 || opcion>5){
                         entradavalida=true;
                         System.out.println("Introduce una opcion valida");
+                        imprimirmenu();
                     }
-
-
                 }catch (InputMismatchException e){
                     System.out.println("Error.Solo se permiten numeros");
                     scanner.nextLine();
-
                 }
             }while (entradavalida);
             switch (opcion){
@@ -266,7 +265,7 @@ public class MainCita {
                 }catch (InputMismatchException e){
                     System.out.println("Error.Debes poner solo numeros");
                 } catch (ParseException e) {
-                    throw new RuntimeException(e);
+                    System.out.println("Error.Introduce una fecha valida");
                 }
             }while (!continuar);
             continuar=false;
@@ -283,17 +282,12 @@ public class MainCita {
             continuar=false;
             do{
                 try{
-                    System.out.print("Introduce el nuevo diagnosis:");
-                    nuevodiagnosis= scanner.next();
-                    for(int i=0;i<nuevodiagnosis.length();i++){
-                        if(Character.isLetter(nuevodiagnosis.charAt(i))){
-                            continuar=true;
-                        }else{
-                            System.out.println("Error.Solo se permite caracteres");
-                        }
-                    }
+                    System.out.print("Introduce el diagnosis:");
+                    nuevodiagnosis= scanner.nextLine();
+                    Integer.parseInt(nuevodiagnosis);
+                    System.out.println("Error.Solo se permiten caracteres");
                 }catch (NumberFormatException e){
-                    System.out.println("Error.Solo se permite caracteres");
+                    continuar=true;
                     scanner.nextLine();
                 }
             }while (!continuar);
@@ -328,6 +322,8 @@ public class MainCita {
         ArrayListdeCita encontrarArrayListdeCita =queryCita(ID_cita);
         if(encontrarArrayListdeCita !=null){
             System.out.println("Cita encontrada: ID_Cita:" + encontrarArrayListdeCita.getID_cita() + " Fecha_Cita:" + encontrarArrayListdeCita.getFecha_cita() + " Hora_Cita:" + encontrarArrayListdeCita.getHora_cita() + " Diagnosis:" + encontrarArrayListdeCita.getDiagnosis() );
+        }else{
+            System.out.println("No se encontro la cita");
         }
 
 
