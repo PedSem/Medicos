@@ -14,25 +14,28 @@ public class MainCita {
     public static void main(String[] args) {
 
         boolean continuar=true;
+        boolean entradavalida;
         int opcion=0;
         do{
             imprimirmenu();
-            try{
-                System.out.println("Elige una opcion");
-                opcion= scanner.nextInt();
-                scanner.nextLine();
-                if(opcion>=0 && opcion<6){
-                    continuar=false;
-                }else{
-                    System.out.println("Introduce una opcion valida");
+            do{
+                entradavalida=false;
+                try{
+                    System.out.println("Elige una opcion");
+                    opcion= scanner.nextInt();
+                    scanner.nextLine();
+                    if(opcion<0 || opcion>5){
+                        entradavalida=true;
+                        System.out.println("Introduce una opcion valida");
+                    }
+
+
+                }catch (InputMismatchException e){
+                    System.out.println("Error.Solo se permiten numeros");
+                    scanner.nextLine();
+
                 }
-
-
-            }catch (InputMismatchException e){
-                System.out.println("Error.Solo se permiten numeros");
-                scanner.nextLine();
-
-            }
+            }while (entradavalida);
             switch (opcion){
                 case 0:
                     System.out.println("Has salido con exito");
@@ -57,7 +60,7 @@ public class MainCita {
 
 
 
-        }while ((opcion<0 || opcion>5) || continuar);
+        }while (continuar);
 
     }
     public static void printcita(){
@@ -107,7 +110,7 @@ public class MainCita {
             }catch (InputMismatchException e){
                 System.out.println("Error.Debes poner solo numeros");
             } catch (ParseException e) {
-                throw new RuntimeException(e);
+                System.out.println("Introduce una fecha valida");
             }
         }while (!continuar);
         continuar=false;
@@ -121,20 +124,16 @@ public class MainCita {
                 scanner.nextLine();
             }
         }while (!continuar);
+
         continuar=false;
         do{
             try{
                 System.out.print("Introduce el diagnosis:");
-                diagnosis= scanner.next();
-                for(int i=0;i<diagnosis.length();i++){
-                    if(Character.isLetter(diagnosis.charAt(i))){
-                        continuar=true;
-                    }else{
-                        System.out.println("Error.Solo se permite caracteres");
-                    }
-                }
+                diagnosis= scanner.nextLine();
+                Integer.parseInt(diagnosis);
+                System.out.println("Error.Solo se permiten caracteres");
             }catch (NumberFormatException e){
-                System.out.println("Error.Solo se permite caracteres");
+                continuar=true;
                 scanner.nextLine();
             }
         }while (!continuar);
