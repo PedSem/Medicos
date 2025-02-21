@@ -18,14 +18,14 @@ public class MainCita {
         do{
             imprimirmenu();
             do{
-                entradavalida=true;
+                entradavalida=false;
                 try{
-                    System.out.println("Elige una opcion");
+                    System.out.print("Elige una opcion:");
                     opcion= scanner.nextInt();
                     scanner.nextLine();
-                    entradavalida=false;
-                    if(opcion<0 || opcion>5){
-                        entradavalida=true;
+                    entradavalida=true;
+                    if(opcion<0 || opcion>6){
+                        entradavalida=false;
                         System.out.println("Introduce una opcion valida");
                         imprimirmenu();
                     }
@@ -55,9 +55,6 @@ public class MainCita {
                     printcita();
                     break;
             }
-
-
-
         }while (continuar);
 
     }
