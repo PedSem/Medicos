@@ -21,39 +21,18 @@ public class ArrayListdeCita {
         return ID_cita;
     }
 
-    public void setID_cita(int ID_cita) {
-        this.ID_cita = ID_cita;
-    }
-
-
-
     public Date getFecha_cita() {
         return fecha_cita;
     }
-
-    public void setFecha_cita(Date fecha_cita) {
-        this.fecha_cita = fecha_cita;
-    }
-
     public int getHora_cita() {
         return hora_cita;
     }
-
-    public void setHora_cita(int hora_cita) {
-        this.hora_cita = hora_cita;
-    }
-
     public String getDiagnosis() {
         return diagnosis;
-    }
-
-    public void setDiagnosis(String diagnosis) {
-        this.diagnosis = diagnosis;
     }
     public static ArrayListdeCita cita(int ID_cita, Date fecha_cita, int hora_cita, String diagnosis){
         return new ArrayListdeCita(ID_cita,fecha_cita,hora_cita,diagnosis);
     }
-
 
     @Override
     public boolean equals(Object o) {
