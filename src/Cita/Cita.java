@@ -40,6 +40,7 @@ import java.util.Date;
             return -1;
 
         }
+
         public static boolean addNewCita(ArrayListdeCita arrayListdeCita){
             int index=findCita(arrayListdeCita);
             if(index==-1){
