@@ -15,7 +15,6 @@ public class ArrayListdeCita {
         this.fecha_cita = fecha_cita;
         this.hora_cita = hora_cita;
         this.diagnosis=diagnosis;
-
     }
 
     public int getID_cita() {

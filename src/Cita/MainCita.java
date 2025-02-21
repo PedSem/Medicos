@@ -12,7 +12,6 @@ public class MainCita {
     private static ArrayList<ArrayListdeCita> arrayListdeCitas =new ArrayList<>();
 
     public static void main(String[] args) {
-
         boolean continuar=true;
         boolean entradavalida;
         int opcion=0;
