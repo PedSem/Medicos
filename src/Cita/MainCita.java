@@ -71,11 +71,11 @@ public class MainCita {
     }
     public static void imprimirmenu(){
         System.out.println("0-Salir");
-        System.out.println("1-Añadir Cita");
+        System.out.println("1-Añadir cita");
         System.out.println("2-Eliminar cita");
         System.out.println("3-Actualizar cita");
-        System.out.println("4-Consultar cita");
-        System.out.println("5-Imprimir cita");
+        System.out.println("4-Consultar citas");
+        System.out.println("5-Imprimir citas");
     }
     public static void AnyadirCita(){
         int ID_cita=0;
@@ -127,7 +127,7 @@ public class MainCita {
         do{
             try{
                 System.out.print("Introduce el diagnosis:");
-                diagnosis= scanner.nextLine();
+                diagnosis= scanner.next();
                 Integer.parseInt(diagnosis);
                 System.out.println("Error.Solo se permiten caracteres");
             }catch (NumberFormatException e){
@@ -256,7 +256,7 @@ public class MainCita {
             continuar=false;
             do{
                 try{
-                    System.out.print("Introduce la fecha de la cita:");
+                    System.out.print("Introduce la nueva fecha de la cita:");
                     nuevafecha_cita= scanner.next();
                     SimpleDateFormat fecha=new SimpleDateFormat("dd/MM/yyyy");
                     fechacita= fecha.parse(nuevafecha_cita);
@@ -281,8 +281,8 @@ public class MainCita {
             continuar=false;
             do{
                 try{
-                    System.out.print("Introduce el diagnosis:");
-                    nuevodiagnosis= scanner.nextLine();
+                    System.out.print("Introduce el nuevo diagnosis:");
+                    nuevodiagnosis= scanner.next();
                     Integer.parseInt(nuevodiagnosis);
                     System.out.println("Error.Solo se permiten caracteres");
                 }catch (NumberFormatException e){
@@ -311,13 +311,13 @@ public class MainCita {
             try{
                 System.out.println("Introduce el ID_cita que quieres consultar");
                 ID_cita= scanner.nextInt();
+                continuar=true;
 
             }catch (InputMismatchException e){
                 System.out.println("Error.Solo se permiten numeros");
                 scanner.nextLine();
-                continuar=true;
             }
-        }while (continuar);
+        }while (!continuar);
         ArrayListdeCita encontrarArrayListdeCita =queryCita(ID_cita);
         if(encontrarArrayListdeCita !=null){
             System.out.println("Cita encontrada: ID_Cita:" + encontrarArrayListdeCita.getID_cita() + " Fecha_Cita:" + encontrarArrayListdeCita.getFecha_cita() + " Hora_Cita:" + encontrarArrayListdeCita.getHora_cita() + " Diagnosis:" + encontrarArrayListdeCita.getDiagnosis() );
