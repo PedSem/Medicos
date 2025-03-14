@@ -55,6 +55,9 @@ public class MainCita {
                 case 5:
                     arraydeCita.printcita();
                     break;
+                case 6:
+                    arraydeCita.printXML();
+                    break;
             }
         }while (continuar);
 
@@ -66,6 +69,7 @@ public class MainCita {
         System.out.println("3-Actualizar cita");
         System.out.println("4-Consultar citas");
         System.out.println("5-Imprimir citas");
+        System.out.println("6-Imprimir citas en XML");
     }
     public static void AnyadirCita(){
         int ID_cita=0;
