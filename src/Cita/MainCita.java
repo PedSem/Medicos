@@ -78,7 +78,6 @@ public class MainCita {
         Date fechacita=new Date();
         String diagnosis="";
         boolean continuar=false;
-
         do {
             try {
                 System.out.print("Introduce el ID de la cita:");
