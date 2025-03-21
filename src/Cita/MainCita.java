@@ -93,7 +93,7 @@ public class MainCita {
         continuar=false;
         do{
             try{
-                System.out.print("Introduce la fecha de la cita:");
+                System.out.print("Introduce la fecha de la cita(dd/MM/yyyy):");
                 fecha_cita= scanner.next();
                 SimpleDateFormat fecha=new SimpleDateFormat("dd/MM/yyyy");
                 fechacita= fecha.parse(fecha_cita);

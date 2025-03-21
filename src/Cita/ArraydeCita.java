@@ -70,14 +70,15 @@ public class ArraydeCita {
         if(citas.isEmpty()){
             System.out.println("No hay ninguna cita disponible");
         }else{
-            System.out.println("</CITAS>");
+            System.out.println("<CITAS>");
             for(int i=0;i<citas.size();i++){
                 System.out.println("<CITA>");
-                System.out.println("<ID_cita>" + citas.get(i).getID_cita() + "<ID_cita>");
-                System.out.println("<fecha_cita>" + citas.get(i).getFecha_cita() + "<fecha_cita>");
-                System.out.println("<hora_cita>" + citas.get(i).getHora_cita() + "<hora_cita>");
-                System.out.println("<ID_Consulta>" + citas.get(i).getDiagnosis() + "<ID_Consulta>");
+                System.out.println("<ID_cita>" + citas.get(i).getID_cita() + "</ID_cita>");
+                System.out.println("<fecha_cita>" + citas.get(i).getFecha_cita() + "</fecha_cita>");
+                System.out.println("<hora_cita>" + citas.get(i).getHora_cita() + "</hora_cita>");
+                System.out.println("<ID_Consulta>" + citas.get(i).getDiagnosis() + "</ID_Consulta>");
                 System.out.println("</CITA>");
+                System.out.println();
             }
             System.out.println("</CITAS>");
         }
