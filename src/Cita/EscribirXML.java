@@ -10,8 +10,10 @@ import java.util.Scanner;
 public class EscribirXML {
     public static void main(String[] args) {
         Date fechacita=new Date();
-        Cita cita=new Cita(1,fechacita,9,"n");
-       infoclase(cita);
+        int ID_cita=0,hora_cita=0;
+        String diagnosis="";
+
+
 
     }
     public static void infoclase(Object o){
@@ -25,12 +27,9 @@ public class EscribirXML {
 
         }
     }
-    public void EscribirFichero(){
+    public void EscribirFichero(int ID_cita,Date fechacita,int hora_cita,String diagnosis){
         Scanner scanner=new Scanner(System.in);
-        int ID_cita,hora_cita;
-        Date fechacita=new Date();
        String fecha_cita;
-        String diagnosis;
         boolean continuar=false;
 
         try{
@@ -76,9 +75,13 @@ public class EscribirXML {
                     System.out.print("Introduce el diagnosis:");
                     diagnosis= scanner.next();
             }while (!ValidarLetras(diagnosis));
+            Cita cita=Cita.createCita(ID_cita,fechacita,hora_cita,diagnosis);
+            objectOutputStream.writeObject(cita);
+
         }catch (IOException e){
             e.printStackTrace();
         }
+
 
     }
     public boolean ValidarLetras(String nombre){
