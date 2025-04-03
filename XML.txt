@@ -1,0 +1,8 @@
+<Citas>
+</Cita>
+ <ID_cita> 1 </ID_cita>
+<Fecha_cita> Tue Sep 09 00:00:00 CEST 2008</Fecha_cita>
+<hora_cita> 9</Hora_cita>
+<ID_Consulta> n</ID_Consulta>
+</Cita>
+</Citas>

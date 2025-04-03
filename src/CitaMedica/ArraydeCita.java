@@ -107,7 +107,7 @@ public class ArraydeCita {
                 bufferedWriter.write("<Citas>\n");
                 for(Cita cita:citas){
                     bufferedWriter.write("</Cita>\n");
-                    bufferedWriter.write(" <ID_cita> " + cita.getID_cita() + " <ID_cita/>\n");
+                    bufferedWriter.write(" <ID_cita> " + cita.getID_cita() + " </ID_cita>\n");
                     bufferedWriter.write("<Fecha_cita> " + cita.getFecha_cita() + "</Fecha_cita>\n");
                     bufferedWriter.write("<hora_cita> " + cita.getHora_cita() + "</Hora_cita>\n");
                     bufferedWriter.write("<ID_Consulta> " + cita.getDiagnosis() + "</ID_Consulta>\n");
@@ -115,6 +115,7 @@ public class ArraydeCita {
 
                 }
                 bufferedWriter.write("</Citas>");
+                bufferedWriter.close();
 
             }catch (IOException e){
                 System.out.println(e.getMessage());
