@@ -1,5 +1,4 @@
-package Cita;
-
+package CitaMedica;
 //Pedro Guillo
 
 import java.text.ParseException;
@@ -25,7 +24,7 @@ public class MainCita {
                     opcion= scanner.nextInt();
                     scanner.nextLine();
                     entradavalida=true;
-                    if(opcion<0 || opcion>6){
+                    if(opcion<0 || opcion>7){
                         entradavalida=false;
                         System.out.println("Introduce una opcion valida");
                         imprimirmenu();
@@ -58,6 +57,9 @@ public class MainCita {
                 case 6:
                     arraydeCita.printXML();
                     break;
+                case 7:
+                    arraydeCita.PrintXMLFichero();
+                    break;
             }
         }while (continuar);
 
@@ -70,6 +72,7 @@ public class MainCita {
         System.out.println("4-Consultar citas");
         System.out.println("5-Imprimir citas");
         System.out.println("6-Imprimir citas en XML");
+        System.out.println("7-Imprimir fichero XML");
     }
     public static void AnyadirCita(){
         int ID_cita=0;

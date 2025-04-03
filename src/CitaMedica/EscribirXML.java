@@ -1,4 +1,4 @@
-package Cita;
+package CitaMedica;
 import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -12,9 +12,6 @@ public class EscribirXML {
         Date fechacita=new Date();
         int ID_cita=0,hora_cita=0;
         String diagnosis="";
-
-
-
     }
     public static void infoclase(Object o){
         Class<?>c;

@@ -1,6 +1,9 @@
-package Cita;
+package CitaMedica;
 //Pedro Guillo
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 public class ArraydeCita {
     protected ArrayList<Cita>citas;
@@ -80,7 +83,42 @@ public class ArraydeCita {
                 System.out.println("</CITA>");
                 System.out.println();
             }
-            System.out.println("</CITAS>");
+        }
+    }
+    public static void infoclase(Object o){
+        Class<?>c;
+        c=o.getClass();
+        System.out.println("Nombre de la clase:" + c.getName());
+        System.out.println("Nombre del paquete:" + c.getPackage().getName());
+        System.out.println("Hereda de la clase:" + c.getSuperclass().getName());
+        for(int i=0;i<c.getDeclaredFields().length;i++){
+            System.out.println("\t" + "" +c.getDeclaredFields()[i].getName() + "" + c.getDeclaredFields()[i].getType().getName());
+
+        }
+    }
+    public void PrintXMLFichero(){
+        if(citas.isEmpty()){
+            System.out.println("No se encontro ninguna cita");
+        }else{
+            infoclase(citas);
+            try{
+                FileWriter fileWriter=new FileWriter("XML.txt");
+                BufferedWriter bufferedWriter=new BufferedWriter(fileWriter);
+                bufferedWriter.write("<Citas>\n");
+                for(Cita cita:citas){
+                    bufferedWriter.write("</Cita>\n");
+                    bufferedWriter.write(" <ID_cita> " + cita.getID_cita() + " <ID_cita/>\n");
+                    bufferedWriter.write("<Fecha_cita> " + cita.getFecha_cita() + "</Fecha_cita>\n");
+                    bufferedWriter.write("<hora_cita> " + cita.getHora_cita() + "</Hora_cita>\n");
+                    bufferedWriter.write("<ID_Consulta> " + cita.getDiagnosis() + "</ID_Consulta>\n");
+                    bufferedWriter.write("</Cita>\n");
+
+                }
+                bufferedWriter.write("</Citas>");
+
+            }catch (IOException e){
+                System.out.println(e.getMessage());
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-package Cita;
+package CitaMedica;
 //Pedro Guillo
 
 import java.util.Date;
