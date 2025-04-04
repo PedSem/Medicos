@@ -58,7 +58,7 @@ public class MainCita {
                     arraydeCita.printXML();
                     break;
                 case 7:
-                    arraydeCita.ImprimirXML();
+                    arraydeCita.PrintXMLFichero();
                     break;
             }
         }while (continuar);

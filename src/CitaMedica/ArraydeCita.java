@@ -113,31 +113,9 @@ public class ArraydeCita {
 
                 }
                 bufferedWriter.write("</Citas>");
+                System.out.println("Se ha convertido en un fichero XML");
                 bufferedWriter.close();
 
-            }catch (IOException e){
-                System.out.println(e.getMessage());
-            }
-        }
-    }
-    public void ImprimirXML(){
-        if(citas.isEmpty()){
-            System.out.println("No se encontro ninguna cita");
-        }else{
-            try{
-                FileOutputStream fileOutputStream=new FileOutputStream("XML.txt");
-                ObjectOutputStream objectOutputStream=new ObjectOutputStream(fileOutputStream);
-                objectOutputStream.writeObject("<Citas>\n");
-                for(Cita cita:citas){
-                    objectOutputStream.writeObject("</Cita>\n");
-                    objectOutputStream.writeObject("<ID_cita>" + cita.getID_cita() + "</ID_cita>\n");
-                    objectOutputStream.writeObject("<Fecha_cita>" + cita.getFecha_cita() + "<Fecha_cita>\n");
-                    objectOutputStream.writeObject("<hora_cita>" + cita.getHora_cita() + "</Hora_cita>\n");
-                    objectOutputStream.writeObject("<Diagnosis>" + cita.getDiagnosis() + "</Diagnosis>\n");
-                    objectOutputStream.writeObject("</Cita>\n");
-                }
-                objectOutputStream.writeObject("</Citas>\n");
-                objectOutputStream.close();
             }catch (IOException e){
                 System.out.println(e.getMessage());
             }
