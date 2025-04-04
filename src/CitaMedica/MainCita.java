@@ -58,7 +58,7 @@ public class MainCita {
                     arraydeCita.printXML();
                     break;
                 case 7:
-                    arraydeCita.PrintXMLFichero();
+                    arraydeCita.ImprimirXML();
                     break;
             }
         }while (continuar);
@@ -72,7 +72,7 @@ public class MainCita {
         System.out.println("4-Consultar citas");
         System.out.println("5-Imprimir citas");
         System.out.println("6-Imprimir citas en XML");
-        System.out.println("7-Imprimir fichero XML");
+        System.out.println("7-Imprimir citas en XML en un fichero");
     }
     public static void AnyadirCita(){
         int ID_cita=0;
@@ -132,6 +132,7 @@ public class MainCita {
             }
         }while (!continuar);
         Cita cita = Cita.createCita(ID_cita,fechacita,hora_cita,diagnosis);
+        arraydeCita.infoclase(cita);
         boolean resultadocita=arraydeCita.addNewCita(cita);
         if(resultadocita){
             System.out.println("Se agrego correctamente la cita");

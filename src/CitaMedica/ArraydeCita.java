@@ -1,10 +1,9 @@
 package CitaMedica;
 //Pedro Guillo
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
+
 public class ArraydeCita {
     protected ArrayList<Cita>citas;
 
@@ -85,14 +84,14 @@ public class ArraydeCita {
             }
         }
     }
-    public static void infoclase(Object o){
+    public  void infoclase(Object o){
         Class<?>c;
         c=o.getClass();
         System.out.println("Nombre de la clase:" + c.getName());
         System.out.println("Nombre del paquete:" + c.getPackage().getName());
         System.out.println("Hereda de la clase:" + c.getSuperclass().getName());
         for(int i=0;i<c.getDeclaredFields().length;i++){
-            System.out.println("\t" + "" +c.getDeclaredFields()[i].getName() + "" + c.getDeclaredFields()[i].getType().getName());
+            System.out.println("\t" + " " +c.getDeclaredFields()[i].getName() + " " + c.getDeclaredFields()[i].getType().getName());
 
         }
     }
@@ -100,7 +99,6 @@ public class ArraydeCita {
         if(citas.isEmpty()){
             System.out.println("No se encontro ninguna cita");
         }else{
-            infoclase(citas);
             try{
                 FileWriter fileWriter=new FileWriter("XML.txt");
                 BufferedWriter bufferedWriter=new BufferedWriter(fileWriter);
@@ -122,5 +120,29 @@ public class ArraydeCita {
             }
         }
     }
+    public void ImprimirXML(){
+        if(citas.isEmpty()){
+            System.out.println("No se encontro ninguna cita");
+        }else{
+            try{
+                FileOutputStream fileOutputStream=new FileOutputStream("XML.txt");
+                ObjectOutputStream objectOutputStream=new ObjectOutputStream(fileOutputStream);
+                objectOutputStream.writeObject("<Citas>\n");
+                for(Cita cita:citas){
+                    objectOutputStream.writeObject("</Cita>\n");
+                    objectOutputStream.writeObject("<ID_cita>" + cita.getID_cita() + "</ID_cita>\n");
+                    objectOutputStream.writeObject("<Fecha_cita>" + cita.getFecha_cita() + "<Fecha_cita>\n");
+                    objectOutputStream.writeObject("<hora_cita>" + cita.getHora_cita() + "</Hora_cita>\n");
+                    objectOutputStream.writeObject("<Diagnosis>" + cita.getDiagnosis() + "</Diagnosis>\n");
+                    objectOutputStream.writeObject("</Cita>\n");
+                }
+                objectOutputStream.writeObject("</Citas>\n");
+                objectOutputStream.close();
+            }catch (IOException e){
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
 }
 
